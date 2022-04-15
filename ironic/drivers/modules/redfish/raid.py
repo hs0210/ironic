@@ -620,7 +620,8 @@ def _construct_volume_payload(
     payload = {'Encrypted': False,
                'VolumeType': RAID_LEVELS[raid_level]['volume_type'],
                'RAIDType': RAID_LEVELS[raid_level]['raid_type'],
-               'CapacityBytes': size_bytes}
+               'CapacityBytes': size_bytes,
+               'InitMode': 'Fast'}
     if physical_disks:
         payload['Links'] = {
             "Drives": [{"@odata.id": _drive_path(storage, d)} for d in
