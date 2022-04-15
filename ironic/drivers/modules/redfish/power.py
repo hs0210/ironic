@@ -157,6 +157,7 @@ class RedfishPower(base.PowerInterface):
             if current_power_state == states.POWER_ON:
                 next_state = states.POWER_OFF
                 _set_power_state(task, system, next_state, timeout=timeout)
+                system = redfish_utils.get_system(task.node)
 
             if isinstance(task.driver.management,
                           redfish_mgmt.RedfishManagement):
